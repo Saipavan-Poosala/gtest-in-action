@@ -20,3 +20,12 @@ TEST(StringCalculator,add_numberZero_ZeroIsExpected){
 //Assert
   ASSERT_EQ(actualValue, expectedValue);
 }
+TEST(StringCalculator,add_numberOne_OneIsExpected){
+//Arrange
+  string input='1';
+  int expectedValue=1;
+//Act
+  int actualValue=Add(input);
+//Assert
+  ASSERT_EQ(actualValue, expectedValue);
+}
