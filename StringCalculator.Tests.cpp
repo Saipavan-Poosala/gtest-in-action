@@ -68,5 +68,5 @@ TEST(StringCalculator,whenDelimiterIsPassed_returnTheirSum){
 TEST(StringCalculatorTestSuite,inputstring_negativenumber_invalidargument){
 //Arrange
 string input = "11,-5,9";
-ASSERT_THROW(invalid_argument,Add("11,-5,9"));
+ASSERT_THROW(Add("11,-5,9"),invalid_argument);
 }
