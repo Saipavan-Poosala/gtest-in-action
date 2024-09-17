@@ -1,12 +1,12 @@
 #include "StringCalculator.h"
 #include <gtest/gtest.h>
 
-class StringCalculatorFixture:public testing::Test(
+class StringCalculatorFixture:public testing::Test{
 protected;
   string input;
   int expectedValue;
   int actualValue;
-);
+};
 
 TEST_F(StringCalculatorFixture,add_emptyInputString_ZeroIsExpected){
 //Arrange
