@@ -65,3 +65,8 @@ TEST(StringCalculator,whenDelimiterIsPassed_returnTheirSum){
 //Assert
   ASSERT_EQ(actualValue, expectedValue);
 }
+TEST(StringCalculatorTestSuite,inputstring_negativenumber_invalidargument){
+//Arrange
+string input = "11,-5,9";
+ASSERT_THROW(invalid_argument);
+}
