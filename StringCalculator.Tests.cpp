@@ -14,7 +14,7 @@ TEST(StringCalculatorTestSuite,add_emptyInputString_ZeroIsExpected){
 TEST(StringCalculator,add_numberZero_ZeroIsExpected){
 //Arrange
   string input=0;
-  int expectedValue=Add(input);
+  int expectedValue=0;
 //Act
   int actualValue=Add(input);
 //Assert
