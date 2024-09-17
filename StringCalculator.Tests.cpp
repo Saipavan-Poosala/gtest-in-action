@@ -31,11 +31,10 @@ TEST(StringCalculator,add_numberOne_OneIsExpected){
 }
 TEST(StringCalculator,add_twoCommaDelimitedNumbers_returnTheirSum){
 //Arrange
-  string input1=input();
-  string input2=input();
-  int expectedValue=int(input1)+int(input2);
+  string input=("1,10");
+  int expectedValue=11;
 //Act
-  int actualValue=Add(input1,input2);
+  int actualValue=Add(input);
 //Assert
   ASSERT_EQ(actualValue, expectedValue);
 }
