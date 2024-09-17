@@ -70,3 +70,33 @@ TEST(StringCalculatorTestSuite,inputstring_negativenumber_invalidargument){
 string input = "11,-5,9";
 ASSERT_THROW(Add("11,-5,9"),invalid_argument);
 }
+TEST(StringCalculatorTestSuite, when_passed_numbers_over_1000)
+{
+  string input = "1,2,1001,3";
+  int expectedValue = 1005;
+  int actualValue = Add(input);
+  ASSERT_EQ(actualValue,expectedValue);
+}
+
+TEST(StringCalculatorTestSuite, when_passed_multicharacter_delimiter)
+{
+  string input = "//[***]\n8***2***3";
+  int expectedValue = 13;
+  int actualValue = Add(input);
+  ASSERT_EQ(actualValue,expectedValue);
+}
+TEST(StringCalculatorTestSuite, when_passed_multiple_delimiters)
+{
+  string input = "//[*][%]\n4*2%3";
+  int expectedValue = 9;
+  int actualValue = Add(input);
+  ASSERT_EQ(actualValue,expectedValue);
+}
+
+TEST(StringCalculatorTestSuite, when_passed_multiple_multicharacter_delimiters)
+{
+  string input = "//[**][%^]\n4**1%^9";
+  int expectedValue = 14;
+  int actualValue = Add(input);
+  ASSERT_EQ(actualValue,expectedValue);
+}
