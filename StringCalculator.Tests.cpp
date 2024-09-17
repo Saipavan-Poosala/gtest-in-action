@@ -47,3 +47,12 @@ TEST(StringCalculator,add_multipleCommaDelimitedNumbers_returnTheirSum){
 //Assert
   ASSERT_EQ(actualValue, expectedValue);
 }
+TEST(StringCalculator,whenDelimitedWithNewlineAndComma_returnTheirSum){
+//Arrange
+  string input=("1\n,10");
+  int expectedValue=11;
+//Act
+  int actualValue=Add(input);
+//Assert
+  ASSERT_EQ(actualValue, expectedValue);
+}
