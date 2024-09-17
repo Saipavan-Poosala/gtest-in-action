@@ -38,3 +38,12 @@ TEST(StringCalculator,add_twoCommaDelimitedNumbers_returnTheirSum){
 //Assert
   ASSERT_EQ(actualValue, expectedValue);
 }
+TEST(StringCalculator,add_multipleCommaDelimitedNumbers_returnTheirSum){
+//Arrange
+  string input=("1,10,12,55");
+  int expectedValue=78;
+//Act
+  int actualValue=Add(input);
+//Assert
+  ASSERT_EQ(actualValue, expectedValue);
+}
