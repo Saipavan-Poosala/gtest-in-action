@@ -29,3 +29,13 @@ TEST(StringCalculator,add_numberOne_OneIsExpected){
 //Assert
   ASSERT_EQ(actualValue, expectedValue);
 }
+TEST(StringCalculator,add_twoCommaDelimitedNumbers_returnTheirSum){
+//Arrange
+  string input1=input();
+  string input2=input();
+  int expectedValue=int(input1)+int(input2);
+//Act
+  int actualValue=Add(input1,input2);
+//Assert
+  ASSERT_EQ(actualValue, expectedValue);
+}
