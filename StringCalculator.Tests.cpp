@@ -1,6 +1,22 @@
 #include "StringCalculator.h"
 #include <gtest/gtest.h>
- 
+
+class StringCalculatorFixture:public testing::Test(
+protected;
+  string input;
+  int expectedValue;
+  int actualValue;
+);
+
+TEST_F(StringCalculatorFixture,add_emptyInputString_ZeroIsExpected){
+//Arrange
+  input="";
+  expectedValue = 0;
+//Act
+  actualValue=Add(input);
+//Assert
+  ASSERT_EQ(actualValue,expectedValue);
+} 
 //Macro by google
 TEST(StringCalculatorTestSuite,add_emptyInputString_ZeroIsExpected){
 //Arrange
@@ -73,7 +89,7 @@ ASSERT_THROW(Add("11,-5,9"),invalid_argument);
 TEST(StringCalculatorTestSuite, when_passed_numbers_over_1000)
 {
   string input = "1,2,1001,3";
-  int expectedValue = 1005;
+  int expectedValue = 6;
   int actualValue = Add(input);
   ASSERT_EQ(actualValue,expectedValue);
 }
