@@ -1,38 +1,22 @@
+#inculde <gtest/gtest.h>
 #include "StringCalculator.h"
-#include <gtest/gtest.h>
 
-class StringCalculatorFixture:public testing::Test{
-protected:
-    string input;
-    int expectedValue;
-    int actualValue;
-};
+int DisplayFunctionCallCount=0;
+int DisplayFunctionArg;
 
-TEST_F(StringCalculatorFixture,add_emptyInputString_ZeroIsExpected){
-  //Arrange
-   input="";
-  expectedValue=0;
-  //Act
-  actualValue=Add(input);
-  //Assert
-  ASSERT_EQ(actualValue,expectedValue);
+void MockDisplayFunction(int result){
+    DisplayFunctionCallCount++; //record
+    DisplayFunctionArg=result;//record
 }
+void ResetIntercationValues(){
+    DisplayFunctionCallCount=0;
+    DisplayFunctionArg=0;
+}
+TEST(InteractionTestSuite,InteractionTest){
 
-TEST(StringCalculatorTestSuite,add_emptyInputString_ZeroIsExpected){
-  //Arrange
   string input="";
-  int expectedValue=0;
-  //Act
-  int actualValue=Add(input);
-  //Assert
-  ASSERT_EQ(actualValue,expectedValue);
-}
-TEST(StringCalculatorTestSuite,add_InputZero_ZeroIsExpected){
-  //Arrange
-  string input="0";
-  int expectedValue=0;
-  //Act
-  int actualValue=Add(input);
-  //Assert
-  ASSERT_EQ(actualValue,expectedValue);
+  Add(input,&MockDisplayFunction);
+  EXPECT_EQ(DisplayFunctionCallCount,1);
+  EXPECT_EQ(DisplayFunctionArg,0);
+  ResetIntercationValues();
 }
